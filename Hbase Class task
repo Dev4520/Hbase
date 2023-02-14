@@ -1,1 +1,10 @@
+#File loaded from local directry to LDF with help of Filezila.
+Then file again loaded LDF to HDFS with help of cloudera
+
+#[cloudera@quickstart ~]$ hadoop fs -ls /user/Hbase_sale
+o/p- -rw-r--r--   1 cloudera supergroup     360233 2023-02-14 02:33 /user/Hbase_sale/sales_order_data.csv
+
+
+
+
 
