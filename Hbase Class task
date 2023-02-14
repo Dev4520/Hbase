@@ -1,10 +1,26 @@
 #File loaded from local directry to LDF with help of Filezila.
 Then file again loaded LDF to HDFS with help of cloudera
+[cloudera@quickstart ~]$ ls /home/cloudera/Hbase1
+o/p- sales_order_data.csv
 
 #[cloudera@quickstart ~]$ hadoop fs -ls /user/Hbase_sale
 o/p- -rw-r--r--   1 cloudera supergroup     360233 2023-02-14 02:33 /user/Hbase_sale/sales_order_data.csv
 
+# crate data base to hive directary
+hive> create database Hbase_hive;
+o/p-OK
+Time taken: 13.517 seconds
 
+# show databases in hive
+O/P- hive> show databases;
+OK
+default
+hbase_hive
 
+# use databases in hive
+O/P- use hbase_hive;
+OK
+
+# create table in hbase shell
 
 
