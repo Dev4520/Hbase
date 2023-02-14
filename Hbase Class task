@@ -50,4 +50,27 @@ row format delimited
 fields terminated by ','
 tblproperties("skip.header.line.count"="1");
 
+# load data on hive table hbase_hive_sales_csv
+hive> load data inpath '/user/Hbase_sale/sales_order_data.csv' into table hbase_hive_sales_csv;
+O/P- Loading data to table hbase_hive.hbase_hive_sales_csv
+Table hbase_hive.hbase_hive_sales_csv stats: [numFiles=1, totalSize=360233]
+OK
+Time taken: 1.354 seconds
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
