@@ -57,7 +57,15 @@ Table hbase_hive.hbase_hive_sales_csv stats: [numFiles=1, totalSize=360233]
 OK
 Time taken: 1.354 seconds
 
+#create tale in hbase
+c-create 'hbase_sale_csv','ordernumber','quantityordered','priceeach','orderlinenumber','sales','status','qtr_id','month_id','year_id','productline','msrp',
+'productcode','phone','city','state','postalcode','country','territory','contactlastname','contactfirstname','dealsize'
 
+O/P:- Hbase::Table - hbase_sale_csv
+
+# to see table
+c-list
+O/P-hbase_sale_csv
 
 
 
