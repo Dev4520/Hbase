@@ -120,7 +120,9 @@ cot_f_name:contactfirstname,
 d_size:dealsize")
 TBLPROPERTIES("hbase.table.name" = "hive_hbase_sales_csv2");
 
-
+# table inseted into manahe hbase tbale
+hive> insert into table hive_hbase_sales_csv select * from hbase_hive_sales_csv;
+O/P- OK
 
 
 
