@@ -1,3 +1,6 @@
+# data base name
+c- create data base hbase_hive
+
 #File loaded from local directry to LDF with help of Filezila.
 Then file again loaded LDF to HDFS with help of cloudera
 [cloudera@quickstart ~]$ ls /home/cloudera/Hbase1
@@ -120,13 +123,27 @@ cot_f_name:contactfirstname,
 d_size:dealsize")
 TBLPROPERTIES("hbase.table.name" = "hive_hbase_sales_csv2");
 
-# table inseted into manahe hbase tbale
+# table inseted into manahe hbase tbale hive_hbase_sales_csv
 hive> insert into table hive_hbase_sales_csv select * from hbase_hive_sales_csv;
 O/P- OK
 
+# Hbase also table is shown
+c- scan 'hive_hbase_sales_csv2'
 
-
-
+O/P-
+ 10425                                      column=ph:phone, timestamp=1676625953887, value=40.67.8555                                                                  
+ 10425                                      column=po_code:postalcode, timestamp=1676625953887, value=44000                                                             
+ 10425                                      column=prd_code:productcode, timestamp=1676625953887, value=S50_1392                                                        
+ 10425                                      column=prd_line:productline', timestamp=1676625953887, value=Trucks and Buses                                               
+ 10425                                      column=pri_ch:priceeach, timestamp=1676625953887, value=100.0                                                               
+ 10425                                      column=qt_id:qtr_id, timestamp=1676625953887, value=2                                                                       
+ 10425                                      column=qty_ord:quantityordered, timestamp=1676625953887, value=18                                                           
+ 10425                                      column=sal:sales, timestamp=1676625953887, value=1895.94                                                                    
+ 10425                                      column=st:state, timestamp=1676625953887, value=                                                                            
+ 10425                                      column=sta:status, timestamp=1676625953887, value=In Process                                                                
+ 10425                                      column=tory:territory, timestamp=1676625953887, value=EMEA                                                                  
+ 10425                                      column=y_id:year_id, timestamp=1676625953887, value=2005                                                                    
+307 row(s) in 5.9970 second
 
 
 
