@@ -58,16 +58,67 @@ OK
 Time taken: 1.354 seconds
 
 #create tale in hbase
-c-create 'hbase_sale_csv','ordernumber','quantityordered','priceeach','orderlinenumber','sales','status','qtr_id','month_id','year_id','productline','msrp',
-'productcode','phone','city','state','postalcode','country','territory','contactlastname','contactfirstname','dealsize'
+c- create 'hive_hbase_sales_csv2','ordernumber','qty_ord','pri_ch','ord_line','sal','sta','qt_id','moth_id','y_id','prd_line','msrp1', 
+                                  'prd_code','ph','cty','st','po_code','ctry','tory','cot_l_name','cot_f_name','d_size'
 
-O/P:- Hbase::Table - hbase_sale_csv
+O/P:- Hbase::Table - hive_hbase_sales_csv2
 
 # to see table
 c-list
 O/P-hbase_sale_csv
 
-
+# create mange table on hive
+create external table if not exists hive_hbase_sales_csv
+(
+ORDERNUMBER int,
+QUANTITYORDERED int,
+PRICEEACH float,
+ORDERLINENUMBER int,
+SALES float,
+STATUS string,
+QTR_ID int,
+MONTH_ID int,
+YEAR_ID int,
+PRODUCTLINE string,
+MSRP int,
+PRODUCTCODE string,
+PHONE string,
+CITY string,
+STATE string,
+POSTALCODE string,
+COUNTRY string,
+TERRITORY string,
+CONTACTLASTNAME string,
+CONTACTFIRSTNAME string,
+DEALSIZE string
+)
+row format delimited
+fields terminated by ','
+STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler'
+WITH SERDEPROPERTIES
+("hbase.columns.mapping" =
+":key,
+qty_ord:quantityordered,
+pri_ch:priceeach,
+ord_line:orderlinenumber,
+sal:sales,
+sta:status,
+qt_id:qtr_id,
+moth_id:month_id,
+y_id:year_id,
+prd_line:productline',
+msrp1:msrp,
+prd_code:productcode,
+ph:phone,
+cty:city,
+st:state,
+po_code:postalcode,
+ctry:country,
+tory:territory,
+cot_l_name:contactlastname, 
+cot_f_name:contactfirstname,
+d_size:dealsize")
+TBLPROPERTIES("hbase.table.name" = "hive_hbase_sales_csv2");
 
 
 
